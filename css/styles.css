@@ -481,6 +481,12 @@ span {
 .project-image {
     float: left;
 }
+.project-image-img{
+	max-width: 300px;
+	max-height: 300px;
+	width:auto;
+	height:auto;
+}
 .project-info {
     position: absolute;
     top: 50%;
