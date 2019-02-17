@@ -93,5 +93,8 @@
             $('#more-projects').fadeIn(300);
         });
     });
+    
 
 })(jQuery);
+
+

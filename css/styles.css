@@ -743,3 +743,7 @@ footer {
     padding: 5px 10px;
 }
 }
+.no-scroll{
+    background: #000;
+    -webkit-overflow-scrolling:touch;
+}

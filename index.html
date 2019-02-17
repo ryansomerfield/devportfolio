@@ -10,6 +10,7 @@
 	  gtag('js', new Date());
 	  gtag('config', 'UA-129268300-1');
 	</script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -161,15 +162,18 @@
             <div class="row">
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img class="project-image-img" src="images/projectfiller.jpg" />
+                        <img class="project-image-img" src="images/ProjectPictures/MechatronicsRobot.jpg" />
                     </div>
                     <!-- End .project-image -->
                     <div class="project-info">
-                        <h3>Placeholder Project</h3>
+                        <h3>Autonomous Navigation Challenge Robot</h3>
                         <p>
-                            Please forgive this placeholder project card as I work to finish and document my projects. More to come in the future!
-                        </p>
-                        <a>View Project</a>
+                            I worked with a group of 3 other students to design and program a robot. The goal of the robot was to navigate through a closed course and complete several challenges along the way.</p>
+                            <h4>Skills developed in this project include:</h4>
+                            <p>
+                            Path Planning, Object Detection and Avoidance, Computer Vision/Color Detection, Mechanical Design, and many others.
+                            </p>
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#RobotProject">View Project</button>
                     </div>
                     <!-- End .project-info -->
                 </div>
@@ -255,7 +259,7 @@
             <li>Robotics</li>
             <li>Soldering</li>
             <li>ROS</li>
-            <li>Arduino</li>
+            <li>Embedded Programming</li>
             <li>Leadership</li>
             <li>Rapid Prototyping</li>
             <li>AutoCAD</li>
@@ -283,7 +287,6 @@
         <!-- End #contact-form -->
     </div>
     <!-- End #contact -->
-
     <footer>
         <div class="container">
             <div class="row">
@@ -312,8 +315,88 @@
     </footer>
     <!-- End footer -->
 
+
+
+    <!--DYANMIC CONTENT-->
+    <!-- Mechatronics Robot Project -->
+    <div id="RobotProject" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Autonomous Navigation Challenge Robot</h4>
+          </div>
+          <div class="container-fluid">
+            <div class="modal-body">
+              <h2>The Challenge</h2>
+              <div class="row">
+                <p>The challenge was to build and program a robot to autonomously navigate that could sense and map its surroundings. The rules of the challenge helped to define design choices that the project team made. The rules of the challenge follow:</br>
+                The objective of the contest was for the robot to navigate through a closed-course to 5 pre-determined waypoints. When traversing the course, the robot was to avoid obstacles (2’x2’ square boxes) and collect colored golf balls along the way. The locations of the obstacles and objects were not known prior to the beginning of the challenge. For a successful run, the robot must have collected & categorized at least two golf balls, and deployed them into the ball chutes after reaching all waypoints.</br>
+                A base score for the challenge was given based on the total run time of the robot. Time deductions and time penalities were then added to the total run time to achieve the final score. Time deductions include:</br>
+                -Perfect Wall Avoidance (-40s)</br>
+                -Extra Object Collection (-20s/each)</br>
+                -Object Location Mapping (-20s/each)</br>
+                Time penalties include:</br>
+                ->2 Walls Hit (+40s)</br>
+                -Missing Object Collection (+20s/each)</br>
+                </p>
+              </div>
+              <h3>About the Robot</h3>
+              <div class="row">
+                <div class="col-md-7">
+                    <p>Several sensors and processors were used in the creation of the robot. A LADAR, gyroscope, IR sensor and Ultrasonic sensors were all used as proprioceptors to determine robot heading and position. A TMS320F28335 Digital Signal Controller was uesd to control the motors on the robot. On the DSC, a PID control law was implemented to ensure smooth and stable movement. Finally, an  OMAPL138 System on Module was used as the main processor. A DSP chip on the OMAP was used for the majority of sensor data collection and processing. On the ARM chip of the OMAP, the robot ran a Linux Kernal that was accessible via network. Through this kernal, programs could be accessed and run, and data could be collected and shown on a remote machine. LabVIEW software was used for the mapping and displaying of information. This mapping was beneficial for understanding and debugging robot behavior during the build/programming phase of the project.</p>
+                </div>
+                <div class="col-md-4">
+                    <img class="project-image-img" src="images/ProjectPictures/MechatronicsRobot.jpg" />
+                </div>
+              </div>
+              <h3>Features</h3>
+              <h4>Path Planning</h4>
+              <div class="row">
+                <p>The robot primarily utilized the A-star path planning algorithm in order to move about the course. The premise of this algorithm is to build an optimal path from the robot’s location to each waypoint, using intermediate waypoints. The algorithm checks through a list of “available nodes”, or locations on the map that do not have obstacles, and then uses heuristics to find an optimal path to the waypoint. In the later stages of the project the team implemented diagonal A-star which allowed the robot to travel on a diagonal and not be tied to a grid system. This allowed the robot to run more efficient paths.</p>
+              </div>
+              <h4>Obstacle Avoidance</h4>
+              <div class="row">
+                <p>Before traversing the course, the only prior information that the robot knew were the external course dimensions and the location of the waypoints. The robot had to locate and avoid up to five, 2’x2’ square obstacles. The robot used a LADAR (Light Detection and Ranging) sensor to range solid objects in the course. Whenever a LADAR reading was received by the robot, its value was compared to the values for known possible locations of obstacles. If each obstacle was positively identified 5 times, the location was marked as an obstacle and the robot avoided those locations when running its path planning algorithm.</p>
+              </div>
+              <h4>Object Detection/Collection</h4>
+              <div class="row">
+                <p>A key component of the contest was object collection and deployment. Our robot utilized image processing for object color detection. A camera, mounted on the front of the robot, processed video and thresholded the color values being sent through. Blue and orange color values were marked as objects after additional thresholding. Once found, the robot centered the object in the camera, before running through an open loop collection method. Orange and blue objectss were contained in different compartments in the robot’s “gripper”. Each compartment had its own gate to ensure the golf balls remain in the gripper until deployment.</p>
+              </div>
+              <h4>Additional Features</h4>
+              <div class="row">
+                <p>One additional piece of technology that the robot used was motion tracking technology. This technology, set up in the room, was used to correct the dead reckoning position of the robot to allow for an accurate knowledge of the robot’s location at all times. The robot used Kalman filtering to weight the “trust” of the dead reckoning and the motion tracking data to provide a proper integration of the two values.</br>
+
+                Additional Feature of the Robot:</br>
+
+                -Sound – The Robot speaks to notify when critical objectives are reached or balls are picked up. This uses an adapted Linux file.</br>
+
+                -LADAR “Bubble” Avoidance – The team added in a LADAR “bubble” to ensure robust obstacle avoidance. Through normal operation, because of the A* algorith, the robot should never come into contact with a wall. However, due to the open loop nature of object collection, there existed a small chance of contact. This LADAR "Bubble" ran with higher priority than any other case, ensuring detection when the robot was too close to an obstacle. In this event, the robot would move in the opposite direction before rerunning the A* algorithm to find its next path.</p>
+              </div>
+              <h4>Demo Video</h4>
+              <div class="row">
+                <video width="560" height="315" controls="controls">
+                <source src="images/videos/robochallenge.mp4" type="video/mp4">
+                </video>
+                <p> <strong>Download Video:</strong>
+                <a href="images/videos/robochallenge.mp4">"Robotics Challenge Video"</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          This project was made for credit in University of Illinois at Urbana-Champaign course SE423:Mechatronics.
+        </div>
+      </div>
+    </div>
+    <!--END DYNAMIC CONTENT-->
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/scripts.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
