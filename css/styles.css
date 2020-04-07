@@ -1,5 +1,6 @@
 /*    Title: Dev Portfolio Template    Version: 1.2.1    Last Change: 08/28/2017    Author: Ryan Fitzgerald    Repo: https://github.com/RyanFitzgerald/devportfolio-template    Issues: https://github.com/RyanFitzgerald/devportfolio-template/issues    Description: This file contains all the styles associated with the page    that don't come from third party libraries. This file gets compiled using    Gulp and send to the /css folder which is then loaded on the page.*/
 body {
+    
     font-family: 'Lato', sans-serif;
     font-size: 16px;
 }
@@ -159,6 +160,28 @@ span {
 .top i {
     color: #74808a;
 }
+.social-section {
+    text-align: center;
+}
+.social-section ul {
+    margin: 15px 0 0 0;
+    padding: 0;
+}
+.social-section li {
+    display: inline-block;
+    font-size: 5em;
+    list-style: none;
+}
+.social-section a {
+    display: block;
+    color: #74808a;
+    padding: 20px;
+}
+.social-section a:hover {
+    color: #000;
+}
+
+
 .social {
     text-align: right;
 }
@@ -225,12 +248,19 @@ span {
 	color: #000;
 }
 
+#profile-img {
+    max-width: 240px;
+    border-radius: 50%;
+    border: 0.4em solid rgba(255, 255, 255, 0.75);
+}
+
+
 #lead {
     position: relative;
-    height: 100vh;
-    min-height: 500px;
+    height: 60vh;
+    min-height: 250px;
     max-height: 550px;
-    background: url(../images/lead-bg3.jpg); /*Unsplash*/
+    /*background: url(../images/lead-bg3.jpg); /*Unsplash*/
     background-size: cover;
     padding: 15px;
     overflow: hidden;
@@ -248,14 +278,15 @@ span {
 }
 #lead-content h1 {
     color: #fff;
-    font-weight: 700;
-    font-size: 5em;
-    line-height: .9em;
+    font-weight: 450;
+    font-size: 2.25em;
+    margin-bottom: 10px;
 }
 #lead-content h2 {
     color: #d6d6d6;
-    font-weight: 350;
-    font-size: 2.25em;
+    font-size: 1.5em;
+    font-weight: 400;
+    display: inline-block;
     margin-bottom: 10px;
 }
 #lead-overlay {
@@ -304,6 +335,13 @@ span {
 100% {
     transform: scale(1, 1);
 }
+
+#content-text {
+
+    color: #74808a;
+    margin: 0;
+}
+
 }#about {
     padding: 75px 15px;
     border-bottom: 1px solid #dcd9d9;
@@ -604,6 +642,13 @@ span {
     padding: 50px 15px;
     text-align: center;
     border-top: 1px solid #dcd9d9;
+}
+.optional-section a {
+    color: #374054;
+    font-weight: 600;
+}
+.optional-section a:hover {
+    color: #000;
 }
 .optional-section h2 {
     color: #374054;
